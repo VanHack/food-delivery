@@ -22,7 +22,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
-		
+
 		<flyway.version>4.2.0</flyway.version>
 	</properties>
 
@@ -51,7 +51,7 @@
 		<dependency>
 			<groupId>org.flywaydb</groupId>
 			<artifactId>flyway-core</artifactId>
-			<version>${flyway.version}</version><!--$NO-MVN-MAN-VER$-->
+			<version>${flyway.version}</version><!--$NO-MVN-MAN-VER$ -->
 		</dependency>
 		<!-- Persistence -->
 
@@ -79,11 +79,19 @@
 		</dependency>
 		<!-- Jackson Java 8 compatibility -->
 
+		<!-- Test -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>com.github.springtestdbunit</groupId>
+			<artifactId>spring-test-dbunit</artifactId>
+			<version>1.2.1</version>
+			<scope>test</scope>
+		</dependency>
+		<!-- Test -->
 	</dependencies>
 
 	<build>

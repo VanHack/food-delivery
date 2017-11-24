@@ -1,0 +1,6 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:food-delivery-test;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+  jackson:
+    serialization:
+      write_dates_as_timestamps: false

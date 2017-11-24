@@ -19,12 +19,14 @@ import com.selzlein.djeison.fooddelivery.app.model.Model;
 import com.selzlein.djeison.fooddelivery.order.model.Order;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "customers")
 @Getter
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 public class Customer implements Model {
