@@ -36,5 +36,9 @@ public class Restaurant implements Model {
 	@JsonIgnore
 	@OneToMany(mappedBy = "restaurant", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private Set<Item> items;
+	
+	@JsonIgnore
+	@OneToMany(mappedBy = "restaurant", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	private Set<Order> orders;
 
 }
