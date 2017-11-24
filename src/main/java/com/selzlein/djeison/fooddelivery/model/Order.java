@@ -34,10 +34,10 @@ public class Order implements Model {
 
 	private LocalDateTime dateTime;
 
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY, optional = false)
 	private Customer customer;
 
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY, optional = false)
 	private Restaurant restaurant;
 
 	@OneToMany(mappedBy = "order", fetch = FetchType.LAZY, cascade = CascadeType.ALL)

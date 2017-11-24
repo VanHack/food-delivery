@@ -2,6 +2,8 @@ package com.selzlein.djeison.fooddelivery.app.controller;
 
 import java.util.Collection;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,7 +24,7 @@ public abstract class ControllerDefault<T extends Model, S extends ServiceDefaul
 	S service;
 
 	@PostMapping("/")
-	public T save(@RequestBody T entity) {
+	public T save(@RequestBody @Valid T entity) {
 		return service.save(entity);
 	}
 

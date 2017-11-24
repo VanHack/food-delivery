@@ -12,6 +12,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.selzlein.djeison.fooddelivery.app.model.Model;
 
@@ -32,8 +34,10 @@ public class Customer implements Model {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
+	@NotEmpty
 	private String name;
 
+	@NotEmpty
 	private String address;
 
 	private LocalDate birthday;
