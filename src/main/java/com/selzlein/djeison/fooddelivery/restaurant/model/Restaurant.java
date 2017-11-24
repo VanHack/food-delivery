@@ -1,4 +1,4 @@
-package com.selzlein.djeison.fooddelivery.model;
+package com.selzlein.djeison.fooddelivery.restaurant.model;
 
 import java.util.Set;
 
@@ -13,6 +13,8 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.selzlein.djeison.fooddelivery.app.model.Model;
+import com.selzlein.djeison.fooddelivery.item.model.Item;
+import com.selzlein.djeison.fooddelivery.order.model.Order;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

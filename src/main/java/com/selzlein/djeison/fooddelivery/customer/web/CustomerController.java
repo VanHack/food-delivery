@@ -1,11 +1,11 @@
-package com.selzlein.djeison.fooddelivery.web;
+package com.selzlein.djeison.fooddelivery.customer.web;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.selzlein.djeison.fooddelivery.app.controller.ControllerDefault;
-import com.selzlein.djeison.fooddelivery.model.Customer;
-import com.selzlein.djeison.fooddelivery.service.CustomerService;
+import com.selzlein.djeison.fooddelivery.app.web.ControllerDefault;
+import com.selzlein.djeison.fooddelivery.customer.model.Customer;
+import com.selzlein.djeison.fooddelivery.customer.service.CustomerService;
 
 @RestController
 @RequestMapping("/customers")

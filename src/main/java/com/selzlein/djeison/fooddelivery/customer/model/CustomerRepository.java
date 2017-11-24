@@ -1,4 +1,4 @@
-package com.selzlein.djeison.fooddelivery.model;
+package com.selzlein.djeison.fooddelivery.customer.model;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

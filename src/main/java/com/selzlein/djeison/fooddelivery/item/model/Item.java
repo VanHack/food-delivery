@@ -1,32 +1,33 @@
-package com.selzlein.djeison.fooddelivery.model;
+package com.selzlein.djeison.fooddelivery.item.model;
 
-import java.time.LocalDate;
-import java.util.Set;
+import java.math.BigDecimal;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.selzlein.djeison.fooddelivery.app.model.Model;
+import com.selzlein.djeison.fooddelivery.restaurant.model.Restaurant;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "customers")
+@Table(name = "items")
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Customer implements Model {
+public class Item implements Model {
 
 	private static final long serialVersionUID = 1L;
 
@@ -35,15 +36,17 @@ public class Customer implements Model {
 	private Long id;
 
 	@NotEmpty
+	@Size(max = 50)
 	private String name;
 
-	@NotEmpty
-	private String address;
+	@Size(max = 150)
+	private String description;
 
-	private LocalDate birthday;
-	
-	@JsonIgnore
-	@OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	private Set<Order> orders;
+	@NotNull
+	@DecimalMin(value = "0.01")
+	private BigDecimal price;
+
+	@ManyToOne(fetch = FetchType.LAZY, optional = false)
+	private Restaurant restaurant;
 
 }

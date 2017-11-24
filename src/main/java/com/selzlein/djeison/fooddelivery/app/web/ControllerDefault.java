@@ -1,4 +1,4 @@
-package com.selzlein.djeison.fooddelivery.app.controller;
+package com.selzlein.djeison.fooddelivery.app.web;
 
 import java.util.Collection;
 
