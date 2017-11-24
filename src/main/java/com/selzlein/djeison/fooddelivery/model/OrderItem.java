@@ -1,30 +1,23 @@
 package com.selzlein.djeison.fooddelivery.model;
 
-import java.time.LocalDateTime;
-import java.util.Set;
+import java.math.BigDecimal;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.selzlein.djeison.fooddelivery.app.model.Model;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "orders")
+@Table(name = "order_items")
 @Getter
-@AllArgsConstructor
-@NoArgsConstructor
-public class Order implements Model {
+public class OrderItem implements Model {
 
 	private static final long serialVersionUID = 1L;
 
@@ -32,15 +25,14 @@ public class Order implements Model {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	private LocalDateTime dateTime;
+	@ManyToOne(fetch = FetchType.LAZY)
+	private Order order;
 
-	@ManyToOne
-	private Customer customer;
+	@ManyToOne(fetch = FetchType.LAZY)
+	private Item item;
 
-	@ManyToOne
-	private Restaurant restaurant;
+	private BigDecimal unitPrice;
 
-	@OneToMany(mappedBy = "order", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	private Set<OrderItem> items;
+	private BigDecimal quantity;
 
 }
