@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 import javax.validation.constraints.DecimalMin;
 
 import com.selzlein.djeison.fooddelivery.app.model.Model;
@@ -15,8 +16,9 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-@Getter
 @Entity
+@Table(name = "items")
+@Getter
 @NoArgsConstructor
 @AllArgsConstructor
 public class Item implements Model {
