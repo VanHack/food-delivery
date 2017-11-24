@@ -4,14 +4,14 @@ create table orders (
     customer_id bigint,
     restaurant_id bigint,
     primary key (id)
-)
+);
 
 alter table orders 
     add constraint fk_order_restaurant 
     foreign key (restaurant_id) 
-    references restaurants
+    references restaurants;
     
 alter table orders 
     add constraint fk_order_customer 
     foreign key (customer_id) 
-    references customers
+    references customers;

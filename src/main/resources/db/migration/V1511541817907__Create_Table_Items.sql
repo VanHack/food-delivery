@@ -5,9 +5,9 @@ create table items (
     price decimal(19,2),
     restaurant_id bigint,
     primary key (id)
-)
+);
 
-alter table item 
+alter table items 
     add constraint fk_item_restaurant 
     foreign key (restaurant_id) 
-    references restaurant
+    references restaurants;

@@ -5,17 +5,17 @@ create table order_items (
     item_id bigint,
     order_id bigint,
     primary key (id)
-)
+);
 
 alter table order_items 
     add constraint fk_orderitem_item 
     foreign key (item_id) 
-    references items
+    references items;
 alter table order_items 
     add constraint fk_orderitem_order 
     foreign key (order_id) 
-    references orders
+    references orders;
 alter table orders 
     add constraint fk_orderitem_customer 
     foreign key (customer_id) 
-    references customers
+    references customers;
