@@ -1,27 +1,25 @@
 package com.selzlein.djeison.fooddelivery.model;
 
-import java.util.Set;
+import java.math.BigDecimal;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
+import javax.validation.constraints.DecimalMin;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.selzlein.djeison.fooddelivery.app.model.Model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-@Entity
 @Getter
+@Entity
 @NoArgsConstructor
 @AllArgsConstructor
-public class Restaurant implements Model {
+public class Item implements Model {
 
 	private static final long serialVersionUID = 1L;
 
@@ -31,10 +29,12 @@ public class Restaurant implements Model {
 
 	private String name;
 
-	private String address;
+	private String description;
 
-	@JsonIgnore
-	@OneToMany(mappedBy = "restaurant", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	private Set<Item> items;
+	@DecimalMin(value = "0.01")
+	private BigDecimal price;
+	
+	@ManyToOne
+	private Restaurant restaurant;
 
 }
