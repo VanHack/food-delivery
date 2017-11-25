@@ -15,8 +15,10 @@ import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.selzlein.djeison.fooddelivery.app.model.Model;
 import com.selzlein.djeison.fooddelivery.restaurant.model.Restaurant;
+import com.selzlein.djeison.fooddelivery.restaurant.service.RestaurantIdSerializer;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -46,6 +48,7 @@ public class Item implements Model {
 	@DecimalMin(value = "0.01")
 	private BigDecimal price;
 
+	@JsonSerialize(using = RestaurantIdSerializer.class)
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
 	private Restaurant restaurant;
 
