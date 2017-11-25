@@ -12,7 +12,9 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.selzlein.djeison.fooddelivery.app.model.Model;
 import com.selzlein.djeison.fooddelivery.customer.model.Customer;
 import com.selzlein.djeison.fooddelivery.restaurant.model.Restaurant;
@@ -34,11 +36,14 @@ public class Order implements Model {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm")
 	private LocalDateTime dateTime;
 
+	@NotNull
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
 	private Customer customer;
 
+	@NotNull
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
 	private Restaurant restaurant;
 
