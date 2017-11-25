@@ -50,4 +50,7 @@ public class Order implements Model {
 	@OneToMany(mappedBy = "order", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private Set<OrderItem> items;
 
+	
+	
+	
 }
