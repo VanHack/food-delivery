@@ -6,7 +6,7 @@ Backend project (API) for a food delivery application.
 
 ## Model entities
 
-`Customer` - user that place orders
+`Customer` - user that places orders
 
 `Item` - the actual items that can be ordered by customers
 
