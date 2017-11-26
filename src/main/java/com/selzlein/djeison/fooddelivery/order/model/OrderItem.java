@@ -18,11 +18,17 @@ import com.selzlein.djeison.fooddelivery.item.model.Item;
 import com.selzlein.djeison.fooddelivery.item.service.ItemIdSerializer;
 import com.selzlein.djeison.fooddelivery.order.service.OrderIdSerializer;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "order_items")
 @Getter
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class OrderItem implements Model {
 
 	private static final long serialVersionUID = 1L;
@@ -48,5 +54,9 @@ public class OrderItem implements Model {
 	@NotNull
 	@DecimalMin(value = "0.1")
 	private BigDecimal quantity;
+
+	public BigDecimal total() {
+		return quantity.multiply(unitPrice);
+	}
 
 }

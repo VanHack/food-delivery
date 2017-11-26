@@ -21,12 +21,14 @@ import com.selzlein.djeison.fooddelivery.restaurant.model.Restaurant;
 import com.selzlein.djeison.fooddelivery.restaurant.service.RestaurantIdSerializer;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "items")
 @Getter
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 public class Item implements Model {
