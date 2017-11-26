@@ -1,5 +1,7 @@
 # Food Delivery
 
+[![Build Status](https://img.shields.io/travis/selzlein/food-delivery.svg?style=flat-square)](https://travis-ci.org/selzlein/food-delivery)
+
 Backend project (API) for a food delivery application.
 
 ## Model entities
